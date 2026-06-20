@@ -1,0 +1,12 @@
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Source documents (not published)
+docs/
+
+# Editor / OS cruft
+*.swp
+*~
+.idea/
+.vscode/
