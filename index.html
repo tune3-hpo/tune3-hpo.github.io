@@ -358,6 +358,25 @@
   }
 
   :focus-visible { outline: 2px solid var(--tune); outline-offset: 3px; border-radius: 3px; }
+
+  /* ===== Defesa ===== */
+  .defesa-grid { display: grid; grid-template-columns: 1.12fr 1fr; gap: 28px; align-items: start; }
+  .defesa-media { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px; }
+  .defesa-media a { display: block; }
+  .defesa-media img { display: block; width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--line); }
+  .defesa-media figcaption { color: var(--muted); font-size: 13.5px; margin-top: 14px; }
+  .defesa-media .btn { margin-top: 16px; }
+  .banca { margin-top: 40px; background: var(--ink-2); border: 1px solid var(--line); border-radius: 14px; padding: 32px clamp(20px, 4vw, 40px); }
+  .banca h3 { font-family: "JetBrains Mono"; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--p3); font-weight: 500; margin-bottom: 18px; }
+  .banca-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 32px; }
+  .banca-list li { display: flex; flex-direction: column; gap: 3px; padding: 13px 0; border-top: 1px solid var(--line); }
+  .banca-list li b { font-size: 15.5px; color: var(--text); font-weight: 600; }
+  .banca-list li span { font-size: 12.5px; color: var(--muted); font-family: "JetBrains Mono"; letter-spacing: .02em; }
+  .banca-list li .role { color: var(--p3); }
+  @media (max-width: 820px) {
+    .defesa-grid { grid-template-columns: 1fr; }
+    .banca-list { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
@@ -373,6 +392,7 @@
         <a href="#fase2" data-i18n="nav.fase2">Fase 2 · Dados</a>
         <a href="#datasets" data-i18n="nav.datasets">Datasets</a>
         <a href="#fase3" data-i18n="nav.fase3">Fase 3 · Experimentos</a>
+        <a href="#defesa" data-i18n="nav.defesa">Defesa</a>
       </div>
       <div class="lang" role="group" aria-label="Idioma / Language">
         <button type="button" data-lang="pt">PT</button>
@@ -915,6 +935,45 @@
   </div>
 </section>
 
+<!-- ===================== DEFESA ===================== -->
+<section id="defesa" class="ph3">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow" data-i18n="def.eyebrow">Defesa de Mestrado</div>
+      <h2 data-i18n="def.h2">A defesa: apresentação e banca.</h2>
+      <p data-i18n="def.p">Defesa pública de mestrado no PPGES/UNIPAMPA, Alegrete, 2026. Abaixo, o primeiro slide da apresentação (com link para o PDF completo) e a banca examinadora reunida na sessão.</p>
+    </div>
+
+    <div class="defesa-grid">
+      <figure class="defesa-media reveal">
+        <a href="slides/Tune3_HPO_Lucas.pdf" target="_blank" rel="noopener">
+          <img src="assets/defesa-slide1.png" width="1400" height="787" loading="lazy" alt="Primeiro slide da apresentação de defesa: Redução de Custo Experimental na Geração e Avaliação de Dados Sintéticos para Detecção de Malware Android" />
+        </a>
+        <figcaption data-i18n="def.cap.slide">Primeiro slide da apresentação de defesa.</figcaption>
+        <a class="btn primary" href="slides/Tune3_HPO_Lucas.pdf" target="_blank" rel="noopener" data-i18n="def.pdf">Baixar apresentação (PDF) ↗</a>
+      </figure>
+
+      <figure class="defesa-media reveal">
+        <img src="assets/defesa-banca.jpg" width="1600" height="701" loading="lazy" alt="Banca examinadora e participantes reunidos na sessão de defesa" />
+        <figcaption data-i18n="def.cap.banca">Banca examinadora e participantes reunidos na sessão de defesa.</figcaption>
+      </figure>
+    </div>
+
+    <div class="banca reveal">
+      <h3 data-i18n="def.banca.h">Banca examinadora</h3>
+      <ul class="banca-list">
+        <li><b>Prof. Dr. Diego Kreutz</b><span>UNIPAMPA · <span class="role" data-i18n="def.role.orient">Orientador</span></span></li>
+        <li><b>Prof. Dr. Vinicius de Carvalho Rispoli</b><span>FCTE/UnB</span></li>
+        <li><b>Prof. Dr. Celso Nobre da Fonseca</b><span>UNIPAMPA</span></li>
+        <li><b>Prof. Dr. Claudio Schepke</b><span>UNIPAMPA</span></li>
+        <li><b>Prof. Dr. Rodrigo Mansilha</b><span>UNIPAMPA</span></li>
+        <li><b>Profa. Dra. Aline de Lurdes Zuliani Lunkes</b><span>PUCPR</span></li>
+        <li><b>Prof. Dr. Hendrio Luis de Souza Bragança</b><span>UFAM</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 <!-- ===================== FOOTER ===================== -->
 <footer>
   <div class="wrap">
@@ -1057,7 +1116,16 @@
       "foot.pub2": "<b>Fase 2A · Statistical Ranking</b>, Seleção de características por votação (χ² · MI · RF). <span class=\"v\">SBSeg 2026 (submetido)</span>",
       "foot.pub3": "<b>Fase 2B · When Balancing Harms</b>, Condições estruturais que degradam a detecção após balanceamento. <span class=\"v\">SBSeg 2026 (submetido)</span>",
       "foot.links": "Links", "foot.l2": "→ HPO3 (versão original)", "foot.l3": "→ As três fases do projeto", "foot.l4": "→ Os dois métodos novos", "foot.l5": "→ Acervo de datasets",
-      "foot.copy": "Apoio parcial CAPES (Código 001) e FAPERGS. Programa de pesquisa em três fases para reduzir o custo experimental da geração e avaliação de dados sintéticos na detecção de malware Android."
+      "foot.copy": "Apoio parcial CAPES (Código 001) e FAPERGS. Programa de pesquisa em três fases para reduzir o custo experimental da geração e avaliação de dados sintéticos na detecção de malware Android.",
+      "nav.defesa": "Defesa",
+      "def.eyebrow": "Defesa de Mestrado",
+      "def.h2": "A defesa: apresentação e banca.",
+      "def.p": "Defesa pública de mestrado no PPGES/UNIPAMPA, Alegrete, 2026. Abaixo, o primeiro slide da apresentação (com link para o PDF completo) e a banca examinadora reunida na sessão.",
+      "def.cap.slide": "Primeiro slide da apresentação de defesa.",
+      "def.pdf": "Baixar apresentação (PDF) ↗",
+      "def.cap.banca": "Banca examinadora e participantes reunidos na sessão de defesa.",
+      "def.banca.h": "Banca examinadora",
+      "def.role.orient": "Orientador"
     },
     es: {
       "doc.title": "Tune3, Reducción del Costo Experimental en la Detección de Malware Android",
@@ -1157,7 +1225,16 @@
       "foot.pub2": "<b>Fase 2A · Statistical Ranking</b>, Selección de características por votación (χ² · MI · RF). <span class=\"v\">SBSeg 2026 (enviado)</span>",
       "foot.pub3": "<b>Fase 2B · When Balancing Harms</b>, Condiciones estructurales que degradan la detección tras el balanceo. <span class=\"v\">SBSeg 2026 (enviado)</span>",
       "foot.links": "Enlaces", "foot.l2": "→ HPO3 (versión original)", "foot.l3": "→ Las tres fases del proyecto", "foot.l4": "→ Los dos métodos nuevos", "foot.l5": "→ Acervo de datasets",
-      "foot.copy": "Apoyo parcial CAPES (Código 001) y FAPERGS. Programa de investigación en tres fases para reducir el costo experimental de la generación y evaluación de datos sintéticos en la detección de malware Android."
+      "foot.copy": "Apoyo parcial CAPES (Código 001) y FAPERGS. Programa de investigación en tres fases para reducir el costo experimental de la generación y evaluación de datos sintéticos en la detección de malware Android.",
+      "nav.defesa": "Defensa",
+      "def.eyebrow": "Defensa de Maestría",
+      "def.h2": "La defensa: presentación y tribunal.",
+      "def.p": "Defensa pública de maestría en el PPGES/UNIPAMPA, Alegrete, 2026. Abajo, la primera diapositiva de la presentación (con enlace al PDF completo) y el tribunal evaluador reunido en la sesión.",
+      "def.cap.slide": "Primera diapositiva de la presentación de defensa.",
+      "def.pdf": "Descargar presentación (PDF) ↗",
+      "def.cap.banca": "Tribunal evaluador y participantes reunidos en la sesión de defensa.",
+      "def.banca.h": "Tribunal evaluador",
+      "def.role.orient": "Director"
     },
     en: {
       "doc.title": "Tune3, Reducing Experimental Cost in Android Malware Detection",
@@ -1257,7 +1334,16 @@
       "foot.pub2": "<b>Phase 2A · Statistical Ranking</b>, Voting-based feature selection (χ² · MI · RF). <span class=\"v\">SBSeg 2026 (submitted)</span>",
       "foot.pub3": "<b>Phase 2B · When Balancing Harms</b>, Structural conditions that degrade detection after balancing. <span class=\"v\">SBSeg 2026 (submitted)</span>",
       "foot.links": "Links", "foot.l2": "→ HPO3 (original version)", "foot.l3": "→ The project's three phases", "foot.l4": "→ The two new methods", "foot.l5": "→ Dataset collection",
-      "foot.copy": "Partial support from CAPES (Code 001) and FAPERGS. A three-phase research program to reduce the experimental cost of generating and evaluating synthetic data for Android malware detection."
+      "foot.copy": "Partial support from CAPES (Code 001) and FAPERGS. A three-phase research program to reduce the experimental cost of generating and evaluating synthetic data for Android malware detection.",
+      "nav.defesa": "Defense",
+      "def.eyebrow": "Master's Defense",
+      "def.h2": "The defense: presentation and committee.",
+      "def.p": "Public master's defense at PPGES/UNIPAMPA, Alegrete, 2026. Below, the first slide of the presentation (with a link to the full PDF) and the examining committee gathered for the session.",
+      "def.cap.slide": "First slide of the defense presentation.",
+      "def.pdf": "Download presentation (PDF) ↗",
+      "def.cap.banca": "Examining committee and participants gathered for the defense session.",
+      "def.banca.h": "Examining committee",
+      "def.role.orient": "Advisor"
     }
   };
 
